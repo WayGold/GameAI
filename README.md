@@ -4,7 +4,7 @@ Game AI Movement Algorithm Simulations
 ## How to Run
 `VS Studio 2019`   
 `Openframework for Windows`  
-1. Drag `\GameAI\of_v0.11.2_vs2017_release\apps\myApps\ZengHW1` into your openframework of_xxxx folder  
+1. Drag `\GameAI\of_v0.11.2_vs2017_release\apps\myApps\ZengHW1` into your openframework of_xxxx folder's corresponding `apps\myApps\` 
 2. Open vs solution and compile, this might result in error about vs studio version, simply right click solution and select retarget
 
 ## Controls
