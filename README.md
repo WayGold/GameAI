@@ -4,7 +4,8 @@ Game AI Movement Algorithm Simulations
 ## How to Run
 `VS Studio 2019`   
 `Openframework for Windows`  
-Drag `\GameAI\of_v0.11.2_vs2017_release\apps\myApps\ZengHW1` into your openframework of_xxxx folder and open vs solution
+1. Drag `\GameAI\of_v0.11.2_vs2017_release\apps\myApps\ZengHW1` into your openframework of_xxxx folder  
+2. Open vs solution and compile, this might result in error about vs studio version, simply right click solution and select retarget
 
 ## Controls
 ### Create Mode
@@ -36,14 +37,23 @@ Switch to "TARGET" mode to create a target to seek.
 `2. you could change the orientation changing behavior of seek by: in ofApp.cpp, comment out line 80 dynamicLWYG->characterRB = (*it)->boidRB; and uncomment 78&79, lastly change dynamicLWYG in line 85 into dynamicFace.`  
 `3. to change the orientation changing behavior of arrive and pursue, refer to 2 and change the corresponding section of code. Arrive(90 - 107), Pursue(109-126)`
 
+#### Where to Find Src Codes
+Open Project Solution, you could see them under `aiService/movement/dynamic` with Pursue in `/advance` and others in `/basic`
+
 ### Wander Steering Behavior
 Switch to "WANDERER" mode and click anywhere on screen to create a boid  
 `Note:`  
 `To change the orientation changing behavior, simply pass in true/false to the getSteering function of dynamicWander (line 133)`
 
+#### Where to Find Src Codes
+Open Project Solution, you could see them under `aiService/movement/dynamic/advance`
+
 ### Flocking
 Switch to "FOLLOWER" mode to create a follower  
 Switch to "LEADER" mode to create a leader  
+
+#### Where to Find Src Codes
+Open Project Solution, you could see them under `aiService/movement/dynamic/advance`
 
 ### Target Evade (Optional)
 Uncomment code block at `ofApp.cpp` line 172 to enable target evading from last arriver created
