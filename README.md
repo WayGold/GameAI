@@ -4,13 +4,13 @@ Game AI Movement Algorithm Simulations
 ## How to Run
 `VS Studio 2019`   
 `Openframework for Windows`  
-1. Drag `\GameAI\of_v0.11.2_vs2017_release\apps\myApps\ZengHW1` into your openframework of_xxxx folder  
+1. Drag `\GameAI\of_v0.11.2_vs2017_release\apps\myApps\ZengHW1` into your openframework's `of_xxxx` folder's corresponding `apps\myApps\` 
 2. Open vs solution and compile, this might result in error about vs studio version, simply right click solution and select retarget
 
 ## Controls
 ### Create Mode
 Use Keypad arrow keys up/down to change create state on mouse click.  
-There are in total 5 kinds of boid that you could create.  
+There are in total 7 kinds of boid that you could create.  
 ["SEEKER", "ARRIVER", "PURSUER", "TARGET", "FOLLOWER", "WANDERER", "LEADER"]  
 `NOTE: You could see the fps of the game and current create mode in the title of the window`
 ### BreadCrumbs
@@ -59,5 +59,5 @@ Open Project Solution, you could see them under `aiService/movement/dynamic/adva
 Uncomment code block at `ofApp.cpp` line 172 to enable target evading from last arriver created
 
 ### Params
-To modify into params to algorithms, go to `ofApp.h`
+To modify input params to algorithms, go to `ofApp.h`
 
