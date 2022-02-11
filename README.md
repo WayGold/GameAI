@@ -33,7 +33,7 @@ Switch to "TARGET" mode to create a target to seek.
 
 `Note:`  
 `1. target is universal to all seeking behaviors, there could only be one target`  
-`2. you could change the orientation changing behavior of seek by: in ofApp.cpp, comment out line 80 dynamicLWYG->characterRB = (*it)->boidRB; and uncomment 78&79, lastly change dynamicLWYG in line 85 into dynamicFace.`
+`2. you could change the orientation changing behavior of seek by: in ofApp.cpp, comment out line 80 dynamicLWYG->characterRB = (*it)->boidRB; and uncomment 78&79, lastly change dynamicLWYG in line 85 into dynamicFace.`  
 `3. to change the orientation changing behavior of arrive and pursue, refer to 2 and change the corresponding section of code. Arrive(90 - 107), Pursue(109-126)`
 
 ### Wander Steering Behavior
