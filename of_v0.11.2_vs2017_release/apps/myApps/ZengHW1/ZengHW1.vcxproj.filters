@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\ofApp.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\rigidBody.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\boid.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Collider.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dynamic_seek.cpp">
+      <Filter>aiService\movement\dynamic\basic</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dynamic_arrive.cpp">
+      <Filter>aiService\movement\dynamic\basic</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dynamic_flee.cpp">
+      <Filter>aiService\movement\dynamic\basic</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dynamic_align.cpp">
+      <Filter>aiService\movement\dynamic\basic</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dynamic_velocity_match.cpp">
+      <Filter>aiService\movement\dynamic\basic</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dynamic_face.cpp">
+      <Filter>aiService\movement\dynamic\advanced</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dynamic_wander.cpp">
+      <Filter>aiService\movement\dynamic\advanced</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dynamic_evade.cpp">
+      <Filter>aiService\movement\dynamic\advanced</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dynamic_seperation.cpp">
+      <Filter>aiService\movement\dynamic\advanced</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dynamic_pursue.cpp">
+      <Filter>aiService\movement\dynamic\advanced</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dynamic_look_where_you_are_going.cpp">
+      <Filter>aiService\movement\dynamic\advanced</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dynamic_flocking.cpp">
+      <Filter>aiService\movement\dynamic\advanced</Filter>
+    </ClCompile>
+    <ClCompile Include="src\kinematic_seek.cpp">
+      <Filter>aiService\movement\kinematic</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{d8376475-7454-4a24-b08a-aac121d3ad6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="header">
+      <UniqueIdentifier>{759684bb-1e7b-4d89-9f14-5949c3dd138e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="aiService">
+      <UniqueIdentifier>{806e6783-51c8-426a-86e8-5315d274b82c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="aiService\movement">
+      <UniqueIdentifier>{36569743-9c75-4ede-91a4-4ede1217fdde}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="aiService\movement\dynamic">
+      <UniqueIdentifier>{3c80a356-ac55-4d10-8ebb-fded8707ee37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="aiService\movement\dynamic\advanced">
+      <UniqueIdentifier>{367b8d33-b11a-4759-b3d0-4af721a37376}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="aiService\movement\dynamic\basic">
+      <UniqueIdentifier>{cd830206-4083-43c7-9853-c47794b7b6a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="aiService\movement\steering_output">
+      <UniqueIdentifier>{fc20b0b5-d00b-4755-a876-e43bd2472349}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="aiService\movement\kinematic">
+      <UniqueIdentifier>{6a49978e-bf8e-44dc-89df-c47802ae6e05}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\aiService.h">
+      <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="src\boid.h">
+      <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofApp.h">
+      <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="src\rigidBody.h">
+      <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Collider.h">
+      <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dynamic_seek.h">
+      <Filter>aiService\movement\dynamic\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dynamic_arrive.h">
+      <Filter>aiService\movement\dynamic\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dynamic_flee.h">
+      <Filter>aiService\movement\dynamic\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dynamic_align.h">
+      <Filter>aiService\movement\dynamic\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dynamic_velocity_match.h">
+      <Filter>aiService\movement\dynamic\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dynamic_face.h">
+      <Filter>aiService\movement\dynamic\advanced</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dynamic_wander.h">
+      <Filter>aiService\movement\dynamic\advanced</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dynamic_evade.h">
+      <Filter>aiService\movement\dynamic\advanced</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dynamic_steering.h">
+      <Filter>aiService\movement\steering_output</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dynamic_seperation.h">
+      <Filter>aiService\movement\dynamic\advanced</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dynamic_pursue.h">
+      <Filter>aiService\movement\dynamic\advanced</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dynamic_look_where_you_are_going.h">
+      <Filter>aiService\movement\dynamic\advanced</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dynamic_flocking.h">
+      <Filter>aiService\movement\dynamic\advanced</Filter>
+    </ClInclude>
+    <ClInclude Include="src\kinematic_seek.h">
+      <Filter>aiService\movement\kinematic</Filter>
+    </ClInclude>
+    <ClInclude Include="src\kinematic_steering.h">
+      <Filter>aiService\movement\steering_output</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="icon.rc" />
+  </ItemGroup>
+</Project>
