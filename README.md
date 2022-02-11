@@ -59,5 +59,5 @@ Open Project Solution, you could see them under `aiService/movement/dynamic/adva
 Uncomment code block at `ofApp.cpp` line 172 to enable target evading from last arriver created
 
 ### Params
-To modify into params to algorithms, go to `ofApp.h`
+To modify input params to algorithms, go to `ofApp.h`
 
