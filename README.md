@@ -10,7 +10,7 @@ Game AI Movement Algorithm Simulations
 ## Controls
 ### Create Mode
 Use Keypad arrow keys up/down to change create state on mouse click.  
-There are in total 5 kinds of boid that you could create.  
+There are in total 7 kinds of boid that you could create.  
 ["SEEKER", "ARRIVER", "PURSUER", "TARGET", "FOLLOWER", "WANDERER", "LEADER"]  
 `NOTE: You could see the fps of the game and current create mode in the title of the window`
 ### BreadCrumbs
