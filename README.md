@@ -1,17 +1,17 @@
 # GameAI
-Game AI Movement Algorithm Simulations
+Game AI Movement + Pathfinding Algorithm Simulations
 
 ## How to Run
 `VS Studio 2019`   
 `Openframework for Windows`  
-1. Drag `\GameAI\of_v0.11.2_vs2017_release\apps\myApps\ZengHW1` into your openframework's `of_xxxx` folder's corresponding `apps\myApps\` 
+1. Drag `\GameAI\of_v0.11.2_vs2017_release\apps\myApps\ZengHW2` into your openframework's `of_xxxx` folder's corresponding `apps\myApps\` 
 2. Open vs solution and compile, this might result in error about vs studio version, simply right click solution and select retarget
 
 ## Controls
 ### Create Mode
 Use Keypad arrow keys up/down to change create state on mouse click.  
 There are in total 7 kinds of boid that you could create.  
-["SEEKER", "ARRIVER", "PURSUER", "TARGET", "FOLLOWER", "WANDERER", "LEADER"]  
+["SEEKER", "ARRIVER", "PURSUER", "TARGET", "FOLLOWER", "WANDERER", "LEADER", "OBSTACLE", "PATHFINDER"]  
 `NOTE: You could see the fps of the game and current create mode in the title of the window`
 ### BreadCrumbs
 Use Keyboard "B" to enable or disable BreadCrumbs  
@@ -19,6 +19,8 @@ Use Keyboard "L" to toggle on/off BreadCrumbs amount limit
 ### Kinematic Mode
 Use Keyboard "K" to enable Kinematic Movement Simulation
 Use Keyboard "N" to switch to next window corner during simulation
+### Test Graph In Console  
+Use Keyboard "T" to run a test on a preset graph and a large graph  
 
 ## Simulation
 ### Kinematic Simulation
@@ -52,8 +54,18 @@ Open Project Solution, you could see them under `aiService/movement/dynamic/adva
 Switch to "FOLLOWER" mode to create a follower  
 Switch to "LEADER" mode to create a leader  
 
-#### Where to Find Src Codes
+## Pathfinding
+### How to create walls/obstacles  
+Use Keypad arrow keys to switch to obstacle mode, and click on the screen.  
+`IMPORTANT:`  
+`When creating walls, please make sure you don't leave little yellow dots in between unless you explicitly want to do so (most likely the path finder will be stuck), usually you would want to click multiple times on an area that you want to block`
+
+## Where to Find Src Codes
+### Movement Algorithms
 Open Project Solution, you could see them under `aiService/movement/dynamic/advance`
+
+### Pathfinding Algorithms
+Open Project Solution, you could see them under `aiService/Pathfinding`
 
 ### Target Evade (Optional)
 Uncomment code block at `ofApp.cpp` line 172 to enable target evading from last arriver created
