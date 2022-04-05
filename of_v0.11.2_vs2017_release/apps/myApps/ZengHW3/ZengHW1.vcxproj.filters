@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\ofApp.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\rigidBody.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\boid.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Collider.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dynamic_seek.cpp">
+      <Filter>aiService\movement\dynamic\basic</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dynamic_arrive.cpp">
+      <Filter>aiService\movement\dynamic\basic</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dynamic_flee.cpp">
+      <Filter>aiService\movement\dynamic\basic</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dynamic_align.cpp">
+      <Filter>aiService\movement\dynamic\basic</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dynamic_velocity_match.cpp">
+      <Filter>aiService\movement\dynamic\basic</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dynamic_face.cpp">
+      <Filter>aiService\movement\dynamic\advanced</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dynamic_wander.cpp">
+      <Filter>aiService\movement\dynamic\advanced</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dynamic_evade.cpp">
+      <Filter>aiService\movement\dynamic\advanced</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dynamic_seperation.cpp">
+      <Filter>aiService\movement\dynamic\advanced</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dynamic_pursue.cpp">
+      <Filter>aiService\movement\dynamic\advanced</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dynamic_look_where_you_are_going.cpp">
+      <Filter>aiService\movement\dynamic\advanced</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dynamic_flocking.cpp">
+      <Filter>aiService\movement\dynamic\advanced</Filter>
+    </ClCompile>
+    <ClCompile Include="src\kinematic_seek.cpp">
+      <Filter>aiService\movement\kinematic</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graph.cpp">
+      <Filter>aiService\Pathfinding\Graphs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TileGraph.cpp">
+      <Filter>aiService\Pathfinding\AbstractScheme</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Obstacle.cpp">
+      <Filter>aiService\Pathfinding\Obstacle</Filter>
+    </ClCompile>
+    <ClCompile Include="src\astar.cpp">
+      <Filter>aiService\Pathfinding\A%2a</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dijkstra.cpp">
+      <Filter>aiService\Pathfinding\Dijkstra</Filter>
+    </ClCompile>
+    <ClCompile Include="src\DecisionMaking\ActionManager\Action.cpp">
+      <Filter>aiService\DecisionMaking\ActionManager</Filter>
+    </ClCompile>
+    <ClCompile Include="src\DecisionMaking\ActionManager\ActionManager.cpp">
+      <Filter>aiService\DecisionMaking\ActionManager</Filter>
+    </ClCompile>
+    <ClCompile Include="src\DecisionMaking\Blackboard\Blackboard.cpp">
+      <Filter>aiService\DecisionMaking\BlackBoard</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{d8376475-7454-4a24-b08a-aac121d3ad6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="header">
+      <UniqueIdentifier>{759684bb-1e7b-4d89-9f14-5949c3dd138e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="aiService">
+      <UniqueIdentifier>{806e6783-51c8-426a-86e8-5315d274b82c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="aiService\movement">
+      <UniqueIdentifier>{36569743-9c75-4ede-91a4-4ede1217fdde}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="aiService\movement\dynamic">
+      <UniqueIdentifier>{3c80a356-ac55-4d10-8ebb-fded8707ee37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="aiService\movement\dynamic\advanced">
+      <UniqueIdentifier>{367b8d33-b11a-4759-b3d0-4af721a37376}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="aiService\movement\dynamic\basic">
+      <UniqueIdentifier>{cd830206-4083-43c7-9853-c47794b7b6a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="aiService\movement\steering_output">
+      <UniqueIdentifier>{fc20b0b5-d00b-4755-a876-e43bd2472349}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="aiService\movement\kinematic">
+      <UniqueIdentifier>{6a49978e-bf8e-44dc-89df-c47802ae6e05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="aiService\Pathfinding">
+      <UniqueIdentifier>{f76be1be-bf1d-49d2-a26b-d26da67a164d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="aiService\Pathfinding\Graphs">
+      <UniqueIdentifier>{07c9d13d-1599-4839-8efb-8d6a8f4d2a49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="aiService\Pathfinding\Dijkstra">
+      <UniqueIdentifier>{35d92d58-8db1-496a-824a-848a3b3bcf5e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="aiService\Pathfinding\A%2a">
+      <UniqueIdentifier>{49c60b5a-77f4-464e-894c-6c2b797e190d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="aiService\Pathfinding\AbstractScheme">
+      <UniqueIdentifier>{50efa122-bdb6-49da-88be-918967144762}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="aiService\Pathfinding\Obstacle">
+      <UniqueIdentifier>{b436031d-6c1d-4f63-8692-8099ab345a30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="aiService\Pathfinding\PathFinder">
+      <UniqueIdentifier>{f91487f4-eeb1-4ab0-bf8b-bd5f7953c208}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="aiService\DecisionMaking">
+      <UniqueIdentifier>{b9d93d36-5b62-4510-b566-899091327763}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="aiService\DecisionMaking\DecisionTree">
+      <UniqueIdentifier>{5498dd9b-d488-47e8-910c-03f5d6501d2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="aiService\DecisionMaking\BehavioralTree">
+      <UniqueIdentifier>{f4aa26c9-380b-4f80-b6ed-e34c68b023c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="aiService\DecisionMaking\GOAP">
+      <UniqueIdentifier>{632dd6cf-f6c4-40fe-8de4-769f110bdbd8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="aiService\DecisionMaking\ActionManager">
+      <UniqueIdentifier>{2309331c-29c1-4345-bdda-a023cc7199ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="aiService\DecisionMaking\BlackBoard">
+      <UniqueIdentifier>{cf7d77a5-2d38-4361-9e83-a48c00b89847}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\aiService.h">
+      <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="src\boid.h">
+      <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofApp.h">
+      <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="src\rigidBody.h">
+      <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Collider.h">
+      <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dynamic_seek.h">
+      <Filter>aiService\movement\dynamic\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dynamic_arrive.h">
+      <Filter>aiService\movement\dynamic\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dynamic_flee.h">
+      <Filter>aiService\movement\dynamic\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dynamic_align.h">
+      <Filter>aiService\movement\dynamic\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dynamic_velocity_match.h">
+      <Filter>aiService\movement\dynamic\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dynamic_face.h">
+      <Filter>aiService\movement\dynamic\advanced</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dynamic_wander.h">
+      <Filter>aiService\movement\dynamic\advanced</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dynamic_evade.h">
+      <Filter>aiService\movement\dynamic\advanced</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dynamic_steering.h">
+      <Filter>aiService\movement\steering_output</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dynamic_seperation.h">
+      <Filter>aiService\movement\dynamic\advanced</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dynamic_pursue.h">
+      <Filter>aiService\movement\dynamic\advanced</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dynamic_look_where_you_are_going.h">
+      <Filter>aiService\movement\dynamic\advanced</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dynamic_flocking.h">
+      <Filter>aiService\movement\dynamic\advanced</Filter>
+    </ClInclude>
+    <ClInclude Include="src\kinematic_seek.h">
+      <Filter>aiService\movement\kinematic</Filter>
+    </ClInclude>
+    <ClInclude Include="src\kinematic_steering.h">
+      <Filter>aiService\movement\steering_output</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graph.h">
+      <Filter>aiService\Pathfinding\Graphs</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dijkstra.h">
+      <Filter>aiService\Pathfinding\Dijkstra</Filter>
+    </ClInclude>
+    <ClInclude Include="src\astar.h">
+      <Filter>aiService\Pathfinding\A%2a</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TileGraph.h">
+      <Filter>aiService\Pathfinding\AbstractScheme</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Obstacle.h">
+      <Filter>aiService\Pathfinding\Obstacle</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PathFinder.h">
+      <Filter>aiService\Pathfinding\PathFinder</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DecisionMaking\DecisionTree\DecisionTreeNode.h">
+      <Filter>aiService\DecisionMaking\DecisionTree</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DecisionMaking\ActionManager\Action.h">
+      <Filter>aiService\DecisionMaking\ActionManager</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DecisionMaking\ActionManager\ActionManager.h">
+      <Filter>aiService\DecisionMaking\ActionManager</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DecisionMaking\DecisionTree\DecisionTree.h">
+      <Filter>aiService\DecisionMaking\DecisionTree</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DecisionMaking\Blackboard\Blackboard.h">
+      <Filter>aiService\DecisionMaking\BlackBoard</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="icon.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="USA-road-d.NY.gr" />
+  </ItemGroup>
+</Project>
