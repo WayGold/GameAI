@@ -3,6 +3,8 @@
 #include "ofMain.h"
 #include <vector>
 #include "aiService.h"
+#include "DecisionMaking/DecisionTree/DecisionTree.h"
+#include "DecisionMaking/BehaviorTree/Monster.h"
 #include <unordered_map>
 #include <string>
 #include <chrono>
@@ -44,6 +46,23 @@ class ofApp : public ofBaseApp{
 		Boid* topRight = nullptr;
 		Boid* bottomLeft = nullptr;
 		Boid* bottomRight = nullptr;
+
+		// Decision Tree Controlled Char
+		Boid* DTChar = nullptr;
+		Boid* DTTarget = nullptr;
+
+		// Behavior Tree Controlled Char
+		Boid* Monster = nullptr;
+
+		// Scripted Pathfind locations for Monster
+		Boid* top = nullptr;
+		Boid* bottom = nullptr;
+		Boid* left = nullptr;
+		Boid* right = nullptr;
+
+		Blackboard* blackboard = nullptr;
+		DecsTree::DecisionTree* DTree = nullptr;
+		BehaviorTreeSpace::Monster* MonsterTree = nullptr;
 
 		float seekTargetIndex = -1;
 		float pathFinderIndex = -1;

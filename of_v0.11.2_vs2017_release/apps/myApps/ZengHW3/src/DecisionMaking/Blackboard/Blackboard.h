@@ -6,16 +6,13 @@ namespace BlackBoard {
 	class Blackboard {
 	public:
 		std::vector<Boid*> allBoids;
-		std::vector<Boid*> allSeekers;
-		std::vector<Boid*> allWanderers;
 		std::vector<Obstacle*> allObstacles;
+		Boid* DT_Target = nullptr;
+		Boid* myChar = nullptr;
 
 		DynamicSeek* dynamicSeek = nullptr;
-		DynamicFace* dynamicFace = nullptr;
 		DynamicEvade* dynamicEvade = nullptr;
 		DynamicWander* dynamicWander = nullptr;
-		DynamicPursue* dynamicPursue = nullptr;
-		DynamicArrive* dynamicArrive = nullptr;
 		DynamicLookWhereYouAreGoing* dynamicLWYG = nullptr;
 
 		TileGraph* tileGraph = nullptr;
@@ -42,26 +39,27 @@ namespace BlackBoard {
 		Blackboard() {
 			// Init Movement Algorithms
 			dynamicSeek = new DynamicSeek(nullptr, nullptr, maxAcceleration);
-			dynamicFace = new DynamicFace(nullptr, nullptr, maxAngularAcceleration, maxRotation, targetRadius, slowRadius);
 			dynamicLWYG = new DynamicLookWhereYouAreGoing(nullptr, maxAngularAcceleration, maxRotation, targetRadiusRot, slowRadiusRot);
 			dynamicWander = new DynamicWander(nullptr, maxAngularAcceleration, maxRotation, maxAcceleration, targetRadiusRot,
 				slowRadiusRot, wanderOffset, wanderRate, 0.01);
-			dynamicArrive = new DynamicArrive(nullptr, nullptr, maxAcceleration, maxSpeed, targetRadius, slowRadius);
 			dynamicEvade = new DynamicEvade(nullptr, nullptr, maxPrediction, maxAcceleration + 25, safeRadius, decayCoef);
-			dynamicPursue = new DynamicPursue(nullptr, nullptr, maxPrediction, maxAcceleration);
-			// Tile Graph
-			tileGraph = new TileGraph(64, 48, 1024, 768);
 		}
 
 		~Blackboard() {
 			delete dynamicSeek;
-			delete dynamicFace;
 			delete dynamicLWYG;
 			delete dynamicWander;
-			delete dynamicArrive;
 			delete dynamicEvade;
-			delete dynamicPursue;
-			delete tileGraph;
 		}
+
+		inline void update(std::vector<Boid*> i_allBoids, std::vector<Obstacle*> i_allObstacles, 
+							Boid* i_DT_Target, TileGraph* i_tileGraph, Boid* i_myChar) {
+			// Update Abstract Scheme
+			allBoids = i_allBoids;
+			allObstacles = i_allObstacles;
+			DT_Target = i_DT_Target;
+			tileGraph = i_tileGraph;
+			myChar = i_myChar;
+		};
 	};
 }

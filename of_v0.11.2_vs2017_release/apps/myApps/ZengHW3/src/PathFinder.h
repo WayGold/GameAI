@@ -14,8 +14,9 @@ namespace Pathfinding {
 		Vertex* src = tileGraph->at(current_pos);
 		Vertex* dst = tileGraph->at(dst_pos);
 
-		assert(src);
-		assert(dst);
+		vector<Vertex*> empty;
+		if (dst == nullptr || src == nullptr)
+			return empty;
 
 		// Call Path Finding Algorithm to Output a Path
 		return Pathfinding::a_star(tileGraph->tileGraph->all_vertices, src, dst);

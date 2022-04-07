@@ -242,6 +242,15 @@
     <ClInclude Include="src\DecisionMaking\Blackboard\Blackboard.h">
       <Filter>aiService\DecisionMaking\BlackBoard</Filter>
     </ClInclude>
+    <ClInclude Include="src\DecisionMaking\BehaviorTree\Task.h">
+      <Filter>aiService\DecisionMaking\BehavioralTree</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DecisionMaking\BehaviorTree\Monster.h">
+      <Filter>aiService\DecisionMaking\BehavioralTree</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DecisionMaking\BehaviorTree\Intersection.h">
+      <Filter>aiService\DecisionMaking\BehavioralTree</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />

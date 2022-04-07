@@ -16,9 +16,7 @@ namespace DecsTree {
 
 		DTNode(Blackboard* i_blackboard) : blackboard(i_blackboard){};
 
-		inline virtual void makeDecision() {
-			cout << "Base DTNode Make Decision Func called" << endl;
-		};
+		inline virtual bool makeDecision() = 0;
 	};
 
 	class ActionTreeNode : public DTNode {
@@ -32,9 +30,18 @@ namespace DecsTree {
 			delete action;
 		}
 
-		inline void makeDecision() {
+		inline bool makeDecision() {
 			action->execute();
+			return true;
 		};
+	};
+
+	class Decision {
+	public:
+		Blackboard* blackboard;
+
+		Decision(Blackboard* i_blackboard) : blackboard(i_blackboard) {};
+		virtual bool execute() = 0;
 	};
 
 	class DecisionTreeNode : public DTNode {
@@ -48,31 +55,19 @@ namespace DecsTree {
 			delete decision;
 		}
 
-		inline void makeDecision() {
-			decision->execute();
+		inline bool makeDecision() {
+			return decision->execute();
 		};
 	};
 
-	class Decision {
+	class HasTargetDecision : public Decision {
 	public:
-		Blackboard* blackboard;
-
-		Decision(Blackboard* i_blackboard) : blackboard(i_blackboard) {};
-		virtual bool execute() = 0;
-	};
-
-	class IsSeekingDecision : public Decision {
-	public:
-		Boid* myChar;
-
-		IsSeekingDecision(Blackboard* i_blackboard, Boid* i_myChar) :
-			Decision(i_blackboard), myChar(i_myChar) {};
+		HasTargetDecision(Blackboard* i_blackboard) :
+			Decision(i_blackboard) {};
 		
 		inline bool execute() {
-			for (auto it = blackboard->allSeekers.begin(); it != blackboard->allSeekers.end(); ++it) {
-				if (myChar == (*it))
-					return true;
-			}
+			if (blackboard->DT_Target != nullptr)
+				return true;
 			return false;
 		};
 	};
@@ -81,38 +76,38 @@ namespace DecsTree {
 	public:
 		Boid* myChar;
 
-		IsNearObstacleDecision(string i_name, Blackboard* i_blackboard, Boid* i_myChar) :
+		IsNearObstacleDecision(Blackboard* i_blackboard, Boid* i_myChar) :
 			Decision(i_blackboard), myChar(i_myChar) {};
 
 		inline bool execute() {
 			for (auto it = blackboard->allObstacles.begin(); it != blackboard->allObstacles.end(); ++it) {
-				if (glm::distance((*it)->obstacleRB->position, myChar->boidRB->position) < 70)
+				if (glm::distance((*it)->obstacleRB->position, myChar->boidRB->position) <= 70)
 					return true;
 			}
 			return false;
 		};
 	};
 
-	class HasArrivedDecision : public Decision {
-	public:
-		Boid* myChar;
-		Boid* target;
+	//class HasArrivedDecision : public Decision {
+	//public:
+	//	Boid* myChar;
+	//	Boid* target;
 
-		HasArrivedDecision(string i_name, Blackboard* i_blackboard, Boid* i_myChar, Boid* i_target) : 
-			Decision(i_blackboard), myChar(i_myChar), target(i_target) {};
+	//	HasArrivedDecision(Blackboard* i_blackboard, Boid* i_myChar, Boid* i_target) : 
+	//		Decision(i_blackboard), myChar(i_myChar), target(i_target) {};
 
-		inline bool execute() {
-			if (glm::distance(target->boidRB->position, myChar->boidRB->position) <= 0.01) {
-				for (auto it = blackboard->allSeekers.begin(); it != blackboard->allSeekers.end(); ++it) {
-					if (myChar == (*it)) {
-						blackboard->allSeekers.erase(it);
-						return true;
-					}
-				}
-				// My Character Not Found in allseekers
-				assert(false);
-			}
-			return false;
-		};
-	};
+	//	inline bool execute() {
+	//		if (glm::distance(target->boidRB->position, myChar->boidRB->position) <= 0.01) {
+	//			for (auto it = blackboard->allSeekers.begin(); it != blackboard->allSeekers.end(); ++it) {
+	//				if (myChar == (*it)) {
+	//					blackboard->allSeekers.erase(it);
+	//					return true;
+	//				}
+	//			}
+	//			// My Character Not Found in allseekers
+	//			assert(false);
+	//		}
+	//		return false;
+	//	};
+	//};
 }

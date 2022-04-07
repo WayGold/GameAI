@@ -14,6 +14,9 @@ void ofApp::setup() {
 	states.push_back("LEADER");
 	states.push_back("OBSTACLE");
 	states.push_back("PATHFINDER");
+	states.push_back("DecisionTree Character");
+	states.push_back("DecisionTree Target");
+	states.push_back("Monster");
 
 	// Set Initial State to Seeker
 	currentState = states.begin();
@@ -51,6 +54,13 @@ void ofApp::setup() {
 	currentKinematicTarget = ++windowCorners.begin();
 
 	tileGraph = new TileGraph(64, 48, 1024, 768);
+	blackboard = new Blackboard();
+
+	// Scripted Pathfind locations for Monster
+	top = new Boid(glm::vec2(295, 280), 10, 5, ofColor(0, 0, 0));
+	bottom = new Boid(glm::vec2(295, 670), 10, 5, ofColor(0, 0, 0));
+	left = new Boid(glm::vec2(30, 460), 10, 5, ofColor(0, 0, 0));
+	right = new Boid(glm::vec2(550, 460), 10, 5, ofColor(0, 0, 0));
 }
 
 //--------------------------------------------------------------
@@ -238,6 +248,16 @@ void ofApp::update() {
 		delete explicitRB;
 	}
 
+	// Update Blackboard
+	blackboard->update(allBoids, allObstacles, DTTarget, tileGraph, DTChar);
+
+	// Decision Tree Controlled Char Section
+	if (DTree)
+		DTree->execute();
+
+	if (MonsterTree)
+		MonsterTree->update();
+
 	// Update Tile Graph Connections
 	tileGraph->updateGraph(allObstacles);
 
@@ -311,6 +331,15 @@ void ofApp::exit()
 
 	if (tileGraph)
 		delete tileGraph;
+
+	if (blackboard)
+		delete blackboard;
+
+	if (DTree)
+		delete DTree;
+
+	if (MonsterTree)
+		delete MonsterTree;
 
 	delete topLeft;
 	delete topRight;
@@ -455,7 +484,7 @@ void ofApp::keyPressed(int key) {
 
 		std::cout << "LARGE GRAPH:" << std::endl;
 		std::cout << "Dijkstra average num of edges visited: " << dijkstra_sum / batch_size << std::endl;
-		std::cout << "Dijkstra average time used: " << 
+		std::cout << "Dijkstra average time used: " <<
 			std::chrono::duration_cast<std::chrono::microseconds>(dijkstra_stop - dijkstra_start).count() / batch_size << std::endl;
 
 		std::cout << "A* average num of edges visited: " << astar_sum / batch_size << std::endl;
@@ -546,8 +575,28 @@ void ofApp::mousePressed(int x, int y, int button) {
 		allObstacles.push_back(new Obstacle(glm::vec2(x, y), 100, 20, ofColor(255, 255, 0)));
 	}
 
+	if (*currentState == "DecisionTree Character") {
+		DTChar = new Boid(glm::vec2(x, y), 20, 10, ofColor(153, 51, 255));
+		DTree = new DecsTree::DecisionTree(blackboard, DTChar);
+		allBoids.push_back(DTChar);
+	}
 
+	if (*currentState == "DecisionTree Target") {
+		DTTarget = new Boid(glm::vec2(x, y), 20, 10, ofColor(255, 255, 255));
+		allBoids.push_back(DTTarget);
+	}
 
+	if (*currentState == "Monster") {
+		// push the pathfind locations for scripted path
+		allBoids.push_back(top);
+		allBoids.push_back(bottom);
+		allBoids.push_back(left);
+		allBoids.push_back(right);
+		// Create Monster
+		Monster = new Boid(glm::vec2(x, y), 20, 10, ofColor(255, 0, 0));
+		MonsterTree = new BehaviorTreeSpace::Monster(blackboard, DTChar, Monster, top, bottom, left, right);
+		allBoids.push_back(Monster);
+	}
 }
 
 //--------------------------------------------------------------

@@ -214,6 +214,9 @@
     <ClInclude Include="src\Collider.h" />
     <ClInclude Include="src\DecisionMaking\ActionManager\Action.h" />
     <ClInclude Include="src\DecisionMaking\ActionManager\ActionManager.h" />
+    <ClInclude Include="src\DecisionMaking\BehaviorTree\Intersection.h" />
+    <ClInclude Include="src\DecisionMaking\BehaviorTree\Monster.h" />
+    <ClInclude Include="src\DecisionMaking\BehaviorTree\Task.h" />
     <ClInclude Include="src\DecisionMaking\Blackboard\Blackboard.h" />
     <ClInclude Include="src\DecisionMaking\DecisionTree\DecisionTree.h" />
     <ClInclude Include="src\DecisionMaking\DecisionTree\DecisionTreeNode.h" />

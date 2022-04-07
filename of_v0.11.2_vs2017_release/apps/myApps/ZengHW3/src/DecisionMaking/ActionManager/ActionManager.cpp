@@ -21,4 +21,23 @@ void ActionManager::ActionManager::execute()
 
 	// Remove Expired Action
 	
+
+	// Check for adding action to active
+	if (activeCopy.size() == 0) {
+
+	}
+
+	// Remove or run active actions
+	activeCopy = activeQueue;
+	priority_queue<Action*, vector<Action*>, priorityComp> newActive;
+
+	while (activeCopy.size() > 0) {
+		auto working = activeCopy.top();
+		if (!working->isCompleted()) {
+			newActive.push(working);
+			working->execute();
+		}
+	}
+	// Update Active Queue
+	activeQueue = newActive;
 }
