@@ -1,21 +1,23 @@
 # GameAI
-Game AI Movement + Pathfinding Algorithm Simulations
+Game AI Movement + Pathfinding Algorithm Simulations + Decision Making
 
 ## How to Run
 `VS Studio 2019`   
 `Openframework for Windows`  
-1. Drag `\GameAI\of_v0.11.2_vs2017_release\apps\myApps\ZengHW2` into your openframework's `of_xxxx` folder's corresponding `apps\myApps\` 
+1. Drag `\GameAI\of_v0.11.2_vs2017_release\apps\myApps\ZengHW3` into your openframework's `of_xxxx` folder's corresponding `apps\myApps\` 
 2. Open vs solution and compile, this might result in error about vs studio version, simply right click solution and select retarget
 
 ## Controls
 ### Create Mode
 Use Keypad arrow keys up/down to change create state on mouse click.  
-There are in total 7 kinds of boid that you could create.  
-["SEEKER", "ARRIVER", "PURSUER", "TARGET", "FOLLOWER", "WANDERER", "LEADER", "OBSTACLE", "PATHFINDER"]  
+There are a few kinds of boid that you could create.  
+["SEEKER", "ARRIVER", "PURSUER", "TARGET", "FOLLOWER", "WANDERER", "LEADER", "OBSTACLE", "PATHFINDER", "DecisionTree Character", "Escape Target", "Monster", "GOAP Char"]  
 `NOTE: You could see the fps of the game and current create mode in the title of the window`
 ### BreadCrumbs
 Use Keyboard "B" to enable or disable BreadCrumbs  
 Use Keyboard "L" to toggle on/off BreadCrumbs amount limit
+
+## Movement
 ### Kinematic Mode
 Use Keyboard "K" to enable Kinematic Movement Simulation
 Use Keyboard "N" to switch to next window corner during simulation
@@ -60,6 +62,18 @@ Use Keypad arrow keys to switch to obstacle mode, and click on the screen.
 `IMPORTANT:`  
 `When creating walls, please make sure you don't leave little yellow dots in between unless you explicitly want to do so (most likely the path finder will be stuck), usually you would want to click multiple times on an area that you want to block`
 
+## Decision Making
+### How to Run Decision Tree Controlled Character  
+Use arrow keys to select DecisionTree Character and left click into anywhere in the window, you could create your own level with obstacles.  
+Select Escape Target and spawn via left click, character will pathfind to the target once you create one, else it will wander around.
+
+### How to Run Behavior Tree Controlled Monster  
+Use arrow keys to select Monster and left click, look at report 3 for its behavior and how it interact with other characters.
+
+### How to Run GOAP Controlled Character  
+Use arrow keys to select GOAP Char and left click, look at report 3 for its behavior and how it interact with Monster.  
+`Note: GOAP Agent need a Escape Target to activate full action planning, but of course if you just want to see how it play with the monster that's ok as well.`
+
 ## Where to Find Src Codes
 ### Movement Algorithms
 Open Project Solution, you could see them under `aiService/movement/dynamic/advance`
@@ -67,9 +81,14 @@ Open Project Solution, you could see them under `aiService/movement/dynamic/adva
 ### Pathfinding Algorithms
 Open Project Solution, you could see them under `aiService/Pathfinding`
 
+### Decision Making
+Open Project Solution, you could see them under `aiService/DecisionMaking`
+
 ### Target Evade (Optional)
 Uncomment code block at `ofApp.cpp` line 172 to enable target evading from last arriver created
 
 ### Params
 To modify input params to algorithms, go to `ofApp.h`
+
+
 
