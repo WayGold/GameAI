@@ -1,6 +1,8 @@
 #pragma once
 #include <string>
+#include <cmath> 
 #include "../Blackboard/Blackboard.h"
+#include "../../Obstacle.h"
 
 using namespace std;
 using namespace BlackBoard;
@@ -82,6 +84,38 @@ namespace ActionManager {
 		};
 	};
 
+	class EvadeTargetAction : public Action {
+	public:
+		Boid* myChar;
+		Boid* toEvade;
+		bool isComplete = false;
+
+		EvadeTargetAction(Boid* i_boid, Boid* i_toEvade, string i_name, Blackboard* i_bb,
+			float i_priority, float i_queueTime, float i_expiryTime)
+			: Action(i_name, i_bb, i_priority, i_queueTime, i_expiryTime), myChar(i_boid), toEvade(i_toEvade) {};
+
+		inline bool canInterrupt() { return true; };
+		inline bool canDoBoth(Action* i_action) { return false; };
+		inline bool isCompleted() { return isComplete; };
+
+		inline void execute() {
+			auto deltaTime = ofGetLastFrameTime();
+
+			toEvade = blackboard->monster;
+
+			blackboard->dynamicEvade->characterRB = myChar->boidRB;
+			blackboard->dynamicEvade->targetRB = toEvade->boidRB;
+
+			// Set steering
+			DynamicSteeringOutput steeringOutput;
+			steeringOutput.linearAccel = blackboard->dynamicEvade->getSteering().linearAccel;
+			steeringOutput.rotAccel = blackboard->dynamicLWYG->getSteering().rotAccel;
+
+			myChar->boidRB->update(steeringOutput, blackboard->maxSpeed, blackboard->maxRotation, deltaTime);
+			isComplete = true;
+		};
+	};
+
 	class PathFindDTAction : public Action {
 	public:
 		Boid* pathFinder;
@@ -104,7 +138,7 @@ namespace ActionManager {
 
 				if (path.size() == 0) {
 					path = Pathfinding::getPath(pathFinder->boidRB, seekTarget->boidRB, blackboard->tileGraph);
-					if(path.size() != 0)
+					if (path.size() != 0)
 						// Remove Src
 						path.erase(path.begin());
 				}
@@ -162,7 +196,7 @@ namespace ActionManager {
 	public:
 		Boid* pathFinder;
 		Boid* seekTarget;
-		
+
 		bool isComplete = false;
 
 		PathFindBTAction(Boid* i_boid, Boid* i_seekTarget, string i_name, Blackboard* i_bb, float i_priority, float i_queueTime, float i_expiryTime)
@@ -182,7 +216,9 @@ namespace ActionManager {
 				if (path.size() == 0) {
 					path = Pathfinding::getPath(pathFinder->boidRB, seekTarget->boidRB, blackboard->tileGraph);
 					// Remove Src
-					path.erase(path.begin());
+					if (path.size() != 0)
+						// Remove Src
+						path.erase(path.begin());
 				}
 				else {
 					// Check pathfinder arrival at current path destination, pop from path if arrive
@@ -305,6 +341,35 @@ namespace ActionManager {
 
 				delete explicitRB;
 			}
+		};
+	};
+
+	class MagicAction : public Action {
+	public:
+		Boid* myChar;
+		Boid* monster;
+		bool isComplete = false;
+
+		MagicAction(Boid* i_boid, Boid* i_monster, string i_name, Blackboard* i_bb,
+			float i_priority, float i_queueTime, float i_expiryTime)
+			: Action(i_name, i_bb, i_priority, i_queueTime, i_expiryTime), myChar(i_boid), monster(i_monster) {};
+
+		inline bool canInterrupt() { return true; };
+		inline bool canDoBoth(Action* i_action) { return false; };
+		inline bool isCompleted() { return isComplete; };
+
+		inline void execute() {
+			auto deltaTime = ofGetLastFrameTime();
+
+			myChar = blackboard->myChar;
+			monster = blackboard->monster;
+
+			glm::vec2 midPoint = myChar->boidRB->position + monster->boidRB->position;
+
+			midPoint.x = abs(midPoint.x) / 2;
+			midPoint.y = abs(midPoint.y) / 2;
+
+			blackboard->allObstacles.push_back(new Obstacle(midPoint, 100, 20, ofColor(255, 255, 0)));
 		};
 	};
 }

@@ -5,6 +5,7 @@
 #include "aiService.h"
 #include "DecisionMaking/DecisionTree/DecisionTree.h"
 #include "DecisionMaking/BehaviorTree/Monster.h"
+#include "DecisionMaking/GOAP/GOAP_Player.h"
 #include <unordered_map>
 #include <string>
 #include <chrono>
@@ -54,6 +55,9 @@ class ofApp : public ofBaseApp{
 		// Behavior Tree Controlled Char
 		Boid* Monster = nullptr;
 
+		// GOAP Controlled Char
+		Boid* GOAP_Char = nullptr;
+
 		// Scripted Pathfind locations for Monster
 		Boid* top = nullptr;
 		Boid* bottom = nullptr;
@@ -61,8 +65,11 @@ class ofApp : public ofBaseApp{
 		Boid* right = nullptr;
 
 		Blackboard* blackboard = nullptr;
+		GOAP::WorldStates* worldStates = nullptr;
+
 		DecsTree::DecisionTree* DTree = nullptr;
 		BehaviorTreeSpace::Monster* MonsterTree = nullptr;
+		GOAP::GOAP_Player* GOAP_Control = nullptr;
 
 		float seekTargetIndex = -1;
 		float pathFinderIndex = -1;

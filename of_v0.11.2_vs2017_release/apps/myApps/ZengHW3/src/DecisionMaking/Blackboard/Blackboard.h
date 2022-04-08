@@ -9,6 +9,7 @@ namespace BlackBoard {
 		std::vector<Obstacle*> allObstacles;
 		Boid* DT_Target = nullptr;
 		Boid* myChar = nullptr;
+		Boid* monster = nullptr;
 
 		DynamicSeek* dynamicSeek = nullptr;
 		DynamicEvade* dynamicEvade = nullptr;
@@ -53,13 +54,14 @@ namespace BlackBoard {
 		}
 
 		inline void update(std::vector<Boid*> i_allBoids, std::vector<Obstacle*> i_allObstacles, 
-							Boid* i_DT_Target, TileGraph* i_tileGraph, Boid* i_myChar) {
+							Boid* i_DT_Target, TileGraph* i_tileGraph, Boid* i_myChar, Boid* i_monster) {
 			// Update Abstract Scheme
 			allBoids = i_allBoids;
 			allObstacles = i_allObstacles;
 			DT_Target = i_DT_Target;
 			tileGraph = i_tileGraph;
 			myChar = i_myChar;
+			monster = i_monster;
 		};
 	};
 }

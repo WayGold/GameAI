@@ -125,7 +125,7 @@ namespace BehaviorTreeSpace {
 
 		inline bool run() {
 			myChar = blackboard->myChar;
-			if (myChar == nullptr)
+			if (myChar == nullptr || monster == nullptr)
 				return false;
 
 			auto monsterPos = monster->boidRB->position;

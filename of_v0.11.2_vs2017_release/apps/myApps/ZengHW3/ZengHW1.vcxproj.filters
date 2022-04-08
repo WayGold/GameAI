@@ -251,6 +251,18 @@
     <ClInclude Include="src\DecisionMaking\BehaviorTree\Intersection.h">
       <Filter>aiService\DecisionMaking\BehavioralTree</Filter>
     </ClInclude>
+    <ClInclude Include="src\DecisionMaking\GOAP\WorldStates.h">
+      <Filter>aiService\DecisionMaking\GOAP</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DecisionMaking\GOAP\GOAP_Action.h">
+      <Filter>aiService\DecisionMaking\GOAP</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DecisionMaking\GOAP\Goal.h">
+      <Filter>aiService\DecisionMaking\GOAP</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DecisionMaking\GOAP\GOAP_Player.h">
+      <Filter>aiService\DecisionMaking\GOAP</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />

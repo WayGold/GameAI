@@ -15,8 +15,9 @@ void ofApp::setup() {
 	states.push_back("OBSTACLE");
 	states.push_back("PATHFINDER");
 	states.push_back("DecisionTree Character");
-	states.push_back("DecisionTree Target");
+	states.push_back("Escape Target");
 	states.push_back("Monster");
+	states.push_back("GOAP Char");
 
 	// Set Initial State to Seeker
 	currentState = states.begin();
@@ -55,6 +56,7 @@ void ofApp::setup() {
 
 	tileGraph = new TileGraph(64, 48, 1024, 768);
 	blackboard = new Blackboard();
+	worldStates = new GOAP::WorldStates(blackboard);
 
 	// Scripted Pathfind locations for Monster
 	top = new Boid(glm::vec2(295, 280), 10, 5, ofColor(0, 0, 0));
@@ -249,7 +251,9 @@ void ofApp::update() {
 	}
 
 	// Update Blackboard
-	blackboard->update(allBoids, allObstacles, DTTarget, tileGraph, DTChar);
+	blackboard->update(allBoids, allObstacles, DTTarget, tileGraph, DTChar, Monster);
+	// Update WorldStates
+	worldStates->update(blackboard);
 
 	// Decision Tree Controlled Char Section
 	if (DTree)
@@ -257,6 +261,12 @@ void ofApp::update() {
 
 	if (MonsterTree)
 		MonsterTree->update();
+
+	if (GOAP_Control)
+		GOAP_Control->run();
+
+	// Update All obstacles for new obstacles spawned
+	allObstacles = blackboard->allObstacles;
 
 	// Update Tile Graph Connections
 	tileGraph->updateGraph(allObstacles);
@@ -335,11 +345,17 @@ void ofApp::exit()
 	if (blackboard)
 		delete blackboard;
 
+	if (worldStates)
+		delete worldStates;
+
 	if (DTree)
 		delete DTree;
 
 	if (MonsterTree)
 		delete MonsterTree;
+
+	if (GOAP_Control)
+		delete GOAP_Control;
 
 	delete topLeft;
 	delete topRight;
@@ -576,12 +592,21 @@ void ofApp::mousePressed(int x, int y, int button) {
 	}
 
 	if (*currentState == "DecisionTree Character") {
-		DTChar = new Boid(glm::vec2(x, y), 20, 10, ofColor(153, 51, 255));
-		DTree = new DecsTree::DecisionTree(blackboard, DTChar);
-		allBoids.push_back(DTChar);
+		if (DTChar) {
+			auto aux = DTChar;
+			DTChar = new Boid(glm::vec2(x, y), 20, 10, ofColor(153, 255, 204));
+			delete aux;
+			delete GOAP_Control;
+			DTree = new DecsTree::DecisionTree(blackboard, DTChar);
+		}
+		else {
+			DTChar = new Boid(glm::vec2(x, y), 20, 10, ofColor(153, 51, 255));
+			DTree = new DecsTree::DecisionTree(blackboard, DTChar);
+			allBoids.push_back(DTChar);
+		}
 	}
 
-	if (*currentState == "DecisionTree Target") {
+	if (*currentState == "Escape Target") {
 		DTTarget = new Boid(glm::vec2(x, y), 20, 10, ofColor(255, 255, 255));
 		allBoids.push_back(DTTarget);
 	}
@@ -596,6 +621,25 @@ void ofApp::mousePressed(int x, int y, int button) {
 		Monster = new Boid(glm::vec2(x, y), 20, 10, ofColor(255, 0, 0));
 		MonsterTree = new BehaviorTreeSpace::Monster(blackboard, DTChar, Monster, top, bottom, left, right);
 		allBoids.push_back(Monster);
+	}
+
+	if (*currentState == "GOAP Char") {
+		// Create GOAP Character
+		if (DTChar) {
+			auto aux = DTChar;
+			DTChar = new Boid(glm::vec2(x, y), 20, 10, ofColor(153, 255, 204));
+			delete aux;
+			delete DTree;
+		}
+		else {
+			DTChar = new Boid(glm::vec2(x, y), 20, 10, ofColor(153, 255, 204));
+			allBoids.push_back(DTChar);
+		}
+		// Update Blackboard
+		blackboard->update(allBoids, allObstacles, DTTarget, tileGraph, DTChar, Monster);
+		// Update WorldStates
+		worldStates->update(blackboard);
+		GOAP_Control = new GOAP::GOAP_Player(worldStates, blackboard);
 	}
 }
 

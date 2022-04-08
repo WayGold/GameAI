@@ -220,6 +220,10 @@
     <ClInclude Include="src\DecisionMaking\Blackboard\Blackboard.h" />
     <ClInclude Include="src\DecisionMaking\DecisionTree\DecisionTree.h" />
     <ClInclude Include="src\DecisionMaking\DecisionTree\DecisionTreeNode.h" />
+    <ClInclude Include="src\DecisionMaking\GOAP\Goal.h" />
+    <ClInclude Include="src\DecisionMaking\GOAP\GOAP_Action.h" />
+    <ClInclude Include="src\DecisionMaking\GOAP\GOAP_Player.h" />
+    <ClInclude Include="src\DecisionMaking\GOAP\WorldStates.h" />
     <ClInclude Include="src\dijkstra.h" />
     <ClInclude Include="src\dynamic_align.h" />
     <ClInclude Include="src\dynamic_arrive.h" />
